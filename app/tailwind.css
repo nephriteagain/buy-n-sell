@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    
+    .posts:hover > a > div {
+        filter: blur(1px);
+    }
+    .post:hover {
+        filter: blur(0px) !important;
+    }
+}

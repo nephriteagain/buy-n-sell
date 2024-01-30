@@ -1,4 +1,4 @@
-import { useFetcher, Link } from "@remix-run/react"
+import { useFetcher, Link,   useLocation } from "@remix-run/react"
 import { useEffect, useState } from "react"
 import { LoginSchema } from "types"
 import { redirect } from "@remix-run/node"
@@ -10,10 +10,11 @@ export function action() {
 }
 
 export default function Signin() {
+    const searchParamEmail = new  URLSearchParams(useLocation().search).get('email')
 
     const fetcher = useFetcher()
 
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState(searchParamEmail || '')
     const [password, setPassword] = useState('')
     const [disabled, setDisabled] = useState(true)
     

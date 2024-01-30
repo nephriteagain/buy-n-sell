@@ -1,15 +1,20 @@
 import { useFetcher, Link } from "@remix-run/react"
-import { redirect } from '@remix-run/node'
+import { ActionFunctionArgs, redirect } from '@remix-run/node'
 import { useReducer, useEffect } from "react"
 import { SignupSchema } from "types"
 import { formData,  formReducer, ActionKind } from "~/lib/signupUtils"
-import { ZodError } from 'zod'
 
 import SignupWarnings from "~/components/SignupWarnings"
 
-// TODO: add implement
-export function action() {
-    return redirect('/')
+// TODO: add implementation
+export async function action({request}: ActionFunctionArgs) {
+    const body = await request.formData()
+    const email = body.get('email')
+    if (!email) {
+        throw new Response(null, {status:400})
+    }
+
+    return redirect(`/signup/verify?email=${email}`)
 }
 
 
@@ -31,14 +36,12 @@ export default function Signup() {
     ] = useReducer(formReducer, formData)
 
     useEffect(() => {
-        console.log('password checker')
         try {
             SignupSchema.parse({firstName, lastName, email, birthDate, password,  confirmPassword, validPassword})
 
             dispatch({type: ActionKind.DISABLE_CHANGE, payload: false})
         } catch (error) {
             dispatch({type: ActionKind.DISABLE_CHANGE, payload: true})
-            console.error(error)
         }
 
     }, [

@@ -30,21 +30,20 @@ export default function Post() {
     }, [])
 
     return (
-        <div className="flex flex-col py-2 bg-slate-200 rounded-lg p-4 shadow-lg h-[500px]">
+        <div className="flex flex-col py-2 bg-slate-200 border-2 border-blue-300 rounded-lg p-4 shadow-lg h-[500px]">
             <p className="font-bold text-2xl">{title}</p>
             <p className="font-semibild text-lg opacity-70">{seller}</p>
             <p className="w-1/2">{description}</p>
-            <div className="py-4">
+            <div className="py-4 aspect-square w-[250px]">
                 <img 
                 src="https://picsum.photos/250" 
                 className="rounded-lg shadow-lg" 
                 alt="post image"
                 />
             </div>
-            <p className="w-fit bg-green-300 text-green-950 p-1 font-bold rounded-md shadow-sm">$ {price}</p>
+            <p className="mt-auto w-fit bg-green-300 text-green-950 p-1 font-bold rounded-md shadow-sm">$ {price}</p>
             <div className="flex flex-grow items-center justify-center">
-            </div>
-           
+            </div>           
         </div>        
     )
 }

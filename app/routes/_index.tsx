@@ -9,7 +9,7 @@ import Search from "~/components/Search";
 export const meta: MetaFunction = () => {
     return [
         { title: "Buy N Sell" },
-        { name: "description", content: "Welcome to Remix!" },
+        { name: "description", content: "homepage" },
     ];
 };
 
@@ -29,8 +29,8 @@ export default function Index() {
 
     return (
         <div className="flex flex-col items-center gap-4">
-            <p className="text-center font-bold text-3xl">
-                Landing Page
+            <p className="text-center font-bold text-4xl">
+                Buy N Sell
             </p>
             <Search />
             <Posts posts={posts} />

@@ -1,7 +1,8 @@
-import { useFetcher } from "@remix-run/react"
+import { useFetcher, Link } from "@remix-run/react"
 import { useEffect, useState } from "react"
 import { LoginSchema } from "types"
 import { redirect } from "@remix-run/node"
+
 
 // TODO: implement signin logic
 export function action() {
@@ -63,6 +64,11 @@ export default function Signin() {
                 >
                     signin
                 </button>
+                <Link to='/signup'
+                className="w-fit text-sm opacity-70 hover:opacity-100 font-semibold border-b-2 border-transparent hover:border-b-black transition-all duration-150"
+                >
+                    create an account
+                </Link>
             </fetcher.Form>
         </div>
     )

@@ -14,7 +14,7 @@ export default function Search() {
     }
 
     return (
-        <form className="py-2 flex flex-row gap-4">
+        <form className="w-full py-2 flex flex-row gap-4">
             
             <input 
             type="text" 
